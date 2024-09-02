@@ -12,6 +12,11 @@
 
 <storyly-web></storyly-web>
 
+
+<pre>
+  <ul id="logs"></ul>
+</pre>
+  
 <div class="container-fluid p-5 bg-primary text-white text-center">
   <h1>My First Bootstrap Page</h1>
   <p>Resize this responsive page to see the effect!</p> 
@@ -38,13 +43,29 @@
 </div>
 
 
-<script custom-element="storyly-web" src="https://web-story.storyly.io/sdk/2.17.*/storyly-web.js"></script>
+<script custom-element="storyly-web" src="https://web-story.storyly.io/sdk/3.4.4/storyly-web.js"></script> 
               <storyly-web></storyly-web>
               <script>
+                  function log(eventName, data) {
+                    const ul = document.getElementById('logs');
+                    const li = document.createElement('li');
+                    
+                    li.textContent = `*${eventName}* - ${JSON.stringify(data)}`;
+                    
+                    ul.appendChild(li);
+                  }
+                
                   const storylyWeb = document.querySelector('storyly-web');
+                
                   storylyWeb.init({
                     token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjEyMDc2LCJhcHBfaWQiOjE3ODc5LCJpbnNfaWQiOjE5OTcxfQ.G82QrpEWjU_qZiz8ZZG1UgmXCIQAy21eCxyuRva6Q5M",
                   });
+                 ['userEvent', 'renderedStoryGroups', 'noStoryGroup', 'openStoryGroup', 'storyOpenFailed', 'closeStoryGroup', 'storyViewed', 'storyGroupViewed', 'nextStory', 'previousStory', 'nextStoryGroup', 'previousStoryGroup', 'productTagExpanded', 'productTagClicked'].forEach(eventKey => {
+                    storylyWeb.on(eventKey, (data) => {
+                      log(eventKey, data);
+                    });
+                 });
+                 
               </script>
 </body>
 </html>
