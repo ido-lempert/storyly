@@ -49,7 +49,7 @@
                   function log(eventName, data) {
                     const ul = document.getElementById('logs');
                     const li = document.createElement('li');
-                    
+                    if (data && data.stories && data.stories.length) data.stories = data.stories.length;
                     li.textContent = `*${eventName}* - ${JSON.stringify(data)}`;
                     
                     ul.appendChild(li);
