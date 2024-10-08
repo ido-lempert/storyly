@@ -56,10 +56,18 @@
                   }
                 
                   const storylyWeb = document.querySelector('storyly-web');
+
+                  const userPropertyData = {
+                    '{user_fullname}': 'ישראל ישראלי',
+                    '{user_loan_amount}': 12345
+                  };
                 
                   storylyWeb.init({
-                    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjEyMDc2LCJhcHBfaWQiOjE3ODc5LCJpbnNfaWQiOjE5OTcxfQ.G82QrpEWjU_qZiz8ZZG1UgmXCIQAy21eCxyuRva6Q5M",
+                    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjEyMDc2LCJhcHBfaWQiOjE3ODc5LCJpbnNfaWQiOjE5OTcxfQ.G82QrpEWjU_qZiz8ZZG1UgmXCIQAy21eCxyuRva6Q5M"
                   });
+
+                  storylyWeb.setUserPropertyData(userPropertyData);
+                
                  ['userEvent', 'renderedStoryGroups', 'noStoryGroup', 'openStoryGroup', 'storyOpenFailed', 'closeStoryGroup', 'storyViewed', 'storyGroupViewed', 'nextStory', 'previousStory', 'nextStoryGroup', 'previousStoryGroup', 'productTagExpanded', 'productTagClicked'].forEach(eventKey => {
                     storylyWeb.on(eventKey, (data) => {
                       log(eventKey, data);
