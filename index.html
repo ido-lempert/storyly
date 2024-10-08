@@ -66,7 +66,7 @@
                     token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NfaWQiOjEyMDc2LCJhcHBfaWQiOjE3ODc5LCJpbnNfaWQiOjE5OTcxfQ.G82QrpEWjU_qZiz8ZZG1UgmXCIQAy21eCxyuRva6Q5M"
                   });
 
-                  storylyWeb.setUserPropertyData(userPropertyData);
+                  storylyWeb.setUserPropertiesData(userPropertyData);
                 
                  ['userEvent', 'renderedStoryGroups', 'noStoryGroup', 'openStoryGroup', 'storyOpenFailed', 'closeStoryGroup', 'storyViewed', 'storyGroupViewed', 'nextStory', 'previousStory', 'nextStoryGroup', 'previousStoryGroup', 'productTagExpanded', 'productTagClicked'].forEach(eventKey => {
                     storylyWeb.on(eventKey, (data) => {
