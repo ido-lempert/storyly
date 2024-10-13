@@ -71,11 +71,36 @@
                 storylyWeb.on('actionClicked', (story) => {
                   	console.log('actionClicked', story);
                   });
-                 ['userEvent', 'renderedStoryGroups', 'noStoryGroup', 'openStoryGroup', 'storyOpenFailed', 'closeStoryGroup', 'storyViewed', 'storyGroupViewed', 'nextStory', 'previousStory', 'nextStoryGroup', 'previousStoryGroup', 'productTagExpanded', 'productTagClicked'].forEach(eventKey => {
-                    storylyWeb.on(eventKey, (data) => {
-                      log(eventKey, data);
-                    });
-                 });
+
+                  storylyWeb.on('storyViewed', (story) => {
+                    // {
+                    //   group: groupData,
+                    //   story_id: Number,
+                    //   media: URL,
+                    //   index: Number,
+                    // }
+                    const {group,,story_id,media,index} = story;
+                  	console.log('storyViewed', {group,,story_id,media,index});
+                  });
+
+                  storylyWeb.on('openStoryGroup', (group) => {
+                    // {
+                    //   group_id: Number,
+                    //   icon_image_url: String,
+                    //   media_host: String,
+                    //   order: Number,
+                    //   pinned: Boolean
+                    //   stories: Array,
+                    //   title: String
+                    // }
+                    const {group_id,icon_image_url,media_host,order,pinned,title} = group;
+                  	console.log('openStoryGroup', {group_id,icon_image_url,media_host,order,pinned,title});
+                  });
+                 // ['userEvent', 'renderedStoryGroups', 'noStoryGroup', 'openStoryGroup', 'storyOpenFailed', 'closeStoryGroup', 'storyViewed', 'storyGroupViewed', 'nextStory', 'previousStory', 'nextStoryGroup', 'previousStoryGroup', 'productTagExpanded', 'productTagClicked'].forEach(eventKey => {
+                 //    storylyWeb.on(eventKey, (data) => {
+                 //      log(eventKey, data);
+                 //    });
+                 // });
                  
               </script>
 </body>
