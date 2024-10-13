@@ -71,11 +71,11 @@
                 storylyWeb.on('actionClicked', (story) => {
                   	console.log('actionClicked', story);
                   });
-                 // ['userEvent', 'renderedStoryGroups', 'noStoryGroup', 'openStoryGroup', 'storyOpenFailed', 'closeStoryGroup', 'storyViewed', 'storyGroupViewed', 'nextStory', 'previousStory', 'nextStoryGroup', 'previousStoryGroup', 'productTagExpanded', 'productTagClicked'].forEach(eventKey => {
-                 //    storylyWeb.on(eventKey, (data) => {
-                 //      log(eventKey, data);
-                 //    });
-                 // });
+                 ['userEvent', 'renderedStoryGroups', 'noStoryGroup', 'openStoryGroup', 'storyOpenFailed', 'closeStoryGroup', 'storyViewed', 'storyGroupViewed', 'nextStory', 'previousStory', 'nextStoryGroup', 'previousStoryGroup', 'productTagExpanded', 'productTagClicked'].forEach(eventKey => {
+                    storylyWeb.on(eventKey, (data) => {
+                      log(eventKey, data);
+                    });
+                 });
                  
               </script>
 </body>
