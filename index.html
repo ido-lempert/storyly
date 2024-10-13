@@ -68,6 +68,10 @@
 
                   storylyWeb.setUserPropertiesData(userPropertyData);
 
+                storylyWeb.on('userEvent', (data) => {
+                	console.log(data);
+                });
+                
                 storylyWeb.on('actionClicked', (story) => {
                   	console.log('actionClicked', story);
                   });
